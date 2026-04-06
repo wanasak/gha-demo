@@ -9,4 +9,6 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Connecting to env
+              env:
+                  GHA_APP_ENV: Development
               run: echo "App is connecting to $GHA_APP_ENV"
