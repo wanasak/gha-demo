@@ -10,9 +10,13 @@ on:
                 options:
                     - staging
                     - production
+            artifact_tag:
+                description: "Artifact tag"
+                required: true
+            
 jobs:
     job1:
         runs-on: ubuntu-latest
         steps:
             - name: Deploy to environment
-              run: echo "Deploying to ${{ inputs.environment }}"
+              run: echo "Deploying the artifact ${{ inputs.artifact_tag }} to ${{ inputs.environment }}"
