@@ -1,0 +1,8 @@
+name: Push Trigger
+on: push
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Simple steps
+              run: echo "Hello World"
