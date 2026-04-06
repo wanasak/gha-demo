@@ -1,0 +1,10 @@
+name: Env
+on: workflow_dispatch
+env:
+    GHA_APP_ENV: Production
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Connecting to env
+              run: echo "App is connecting to $GHA_APP_ENV"
