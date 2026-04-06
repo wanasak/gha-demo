@@ -1,0 +1,11 @@
+name: Multiple Command in Single Step
+on: workflow_dispatch
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Multiple Command in Single Step
+              run: |
+                echo "Hello World 1"
+                echo "Hello World 2"
+                echo "Hello World 3"
