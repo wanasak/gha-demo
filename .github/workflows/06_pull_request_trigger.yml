@@ -1,0 +1,11 @@
+name: Pull Request Trigger
+on:
+    pull_request:
+        branches:
+            - main
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Simple steps
+              run: echo "Hello World"
