@@ -4,6 +4,8 @@ env:
     GHA_APP_ENV: Production
 jobs:
     job1:
+        env:
+            GHA_APP_ENV: Staging
         runs-on: ubuntu-latest
         steps:
             - name: Connecting to env
