@@ -1,5 +1,10 @@
 name: Push Trigger
-on: push
+on:
+    push:
+        branches:
+            - main
+            - develop
+            - 'release/**'
 jobs:
     job1:
         runs-on: ubuntu-latest
