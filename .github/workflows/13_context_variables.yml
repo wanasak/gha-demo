@@ -1,0 +1,22 @@
+name: Context Variables
+on: workflow_dispatch
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Show context variables
+              run: |
+                echo "Repository: ${{ github.repository }}"
+                echo "SHA: ${{ github.sha }}"
+                echo "Actor: ${{ github.actor }}"
+                echo "Event: ${{ github.event_name }}"
+                echo "Ref: ${{ github.ref }}"
+                echo "Head Ref: ${{ github.head_ref }}"
+                echo "Base Ref: ${{ github.base_ref }}"
+                echo "Run ID: ${{ github.run_id }}"
+                echo "Run Number: ${{ github.run_number }}"
+                echo "Run Attempt: ${{ github.run_attempt }}"
+                echo "Actor ID: ${{ github.actor_id }}"
+        
+    
+          
