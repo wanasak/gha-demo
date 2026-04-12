@@ -1,0 +1,16 @@
+name: Output
+on: workflow_dispatch
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        # outputs:
+        #     output1: ${{ steps.step1.outputs.output1 }}
+        steps:
+            - name: Simple one
+              id: step1
+              run: echo "output1=Hello World" >> $GITHUB_OUTPUT
+            - name: Step two
+              run: echo "The output from step 1 is ${{ steps.step1.outputs.output1 }}"
+              
+    
+    
