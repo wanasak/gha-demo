@@ -3,8 +3,8 @@ on: workflow_dispatch
 jobs:
     job1:
         runs-on: ubuntu-latest
-        # outputs:
-        #     output1: ${{ steps.step1.outputs.output1 }}
+        outputs:
+            output1: ${{ steps.step1.outputs.output1 }}
         steps:
             - name: Simple one
               id: step1
@@ -12,5 +12,9 @@ jobs:
             - name: Step two
               run: echo "The output from step 1 is ${{ steps.step1.outputs.output1 }}"
               
-    
-    
+    job2:
+        runs-on: ubuntu-latest
+        needs: job1
+        steps:
+            - name: Step three
+              run: echo "The output from job 1 is ${{ needs.job1.outputs.output1 }}"
