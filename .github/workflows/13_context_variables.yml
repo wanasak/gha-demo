@@ -17,6 +17,10 @@ jobs:
                 echo "Run Number: ${{ github.run_number }}"
                 echo "Run Attempt: ${{ github.run_attempt }}"
                 echo "Actor ID: ${{ github.actor_id }}"
+            
+            - name: Print all context variables
+              run: |
+                echo "${{ toJSON(github) }}"
         
     
           
