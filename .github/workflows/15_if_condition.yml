@@ -1,0 +1,14 @@
+name: If Condition
+on: workflow_dispatch
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Step one
+              if: github.ref == 'refs/heads/main'
+              run: echo "This step will only run if the branch is main"
+            - name: Step two
+              run: echo "This step will always run"
+              
+            
+            
