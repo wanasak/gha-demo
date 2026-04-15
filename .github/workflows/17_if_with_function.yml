@@ -26,7 +26,7 @@ jobs:
             
     success_notification:
         needs: [quality_checks, deploy_to_staging, deploy_to_production]
-        if: success()
+        if: always() && !failure()
         runs-on: ubuntu-latest
         steps:
             - name: Send success notification
