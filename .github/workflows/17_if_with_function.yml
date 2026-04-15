@@ -8,9 +8,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Run quality checks
-              run: | 
-                echo "Running quality checks"
-                exit 1
+              run: echo "Running quality checks"
 
     deploy_to_staging:
         if: github.ref_name == 'develop' && github.event_name == 'push'
