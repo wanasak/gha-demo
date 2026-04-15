@@ -1,0 +1,41 @@
+name: If with Function
+on:
+    push:
+        branches: [ main, develop, feature/** ]
+jobs:
+    quality_checks:
+        if: startsWith(github.ref, 'refs/heads/feature/') && github.event_name == 'push'
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run quality checks
+              run: echo "Running quality checks"
+
+    deploy_to_staging:
+        if: github.ref_name == 'develop' && github.event_name == 'push'
+        runs-on: ubuntu-latest
+        steps:
+            - name: Deploy to staging
+              run: echo "Deploying to staging"
+
+    deploy_to_production:
+        if: github.ref_name == 'main' && github.event_name == 'push'
+        runs-on: ubuntu-latest
+        steps:
+            - name: Deploy to production
+              run: echo "Deploying to production"
+            
+    success_notification:
+        needs: [quality_checks, deploy_to_staging, deploy_to_production]
+        if: success()
+        runs-on: ubuntu-latest
+        steps:
+            - name: Send success notification
+              run: echo "All jobs completed successfully"
+
+    failure_notification:
+        needs: [quality_checks, deploy_to_staging, deploy_to_production]
+        if: failure()
+        runs-on: ubuntu-latest
+        steps:
+            - name: Send failure notification
+              run: echo "One or more jobs failed"
